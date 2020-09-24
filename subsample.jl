@@ -21,7 +21,7 @@ outpath = joinpath(@__DIR__, "output/")
 # create directory if it doesn't exist
 isdir(outpath) || mkdir(outpath)
 # file provided by Danielle
-samples = readlines(joinpath(@__DIR__, "samples.txt")
+samples = readlines(joinpath(@__DIR__, "samples.txt"))
 fastqs = readdir(rawfastq_path)
 
 """
@@ -67,9 +67,9 @@ function main()
         # Make 3 replicates each of 10k, 100k, and 1M random subsamples
         # TODO: could make these parameters programmable
         for i in 1:4
-            write_subsample(joinpath(outpath, "$(sample)_10k_$i.fastq.gz"), subsample(records, 10_000))
-            write_subsample(joinpath(outpath, "$(sample)_100k_$i.fastq.gz"), subsample(records, 100_000))
-            write_subsample(joinpath(outpath, "$(sample)_1000k_$i.fastq.gz"), subsample(records, 1_000_000))
+            write_subsample(joinpath(outpath, "$(sample)_250k_$i.fastq.gz"), subsample(records, 250_000))
+            write_subsample(joinpath(outpath, "$(sample)_500k_$i.fastq.gz"), subsample(records, 500_000))
+            write_subsample(joinpath(outpath, "$(sample)_750k_$i.fastq.gz"), subsample(records, 750_000))
         end
     end
 end
